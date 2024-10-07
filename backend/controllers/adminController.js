@@ -36,7 +36,7 @@ const addDoctor = async (req, res) => {
     }
 
     // validating email format
-    if (validator.isEmail(email)) {
+    if (!validator.isEmail(email)) {
       return res.json({
         success: false,
         message: "Please enter a valid email address",
@@ -63,7 +63,7 @@ const addDoctor = async (req, res) => {
 
     const doctorData = {
       name,
-      eamil,
+      email,
       image: imageUrl,
       password: hashedPassword,
       speciality,
